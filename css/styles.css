@@ -21,6 +21,46 @@
   margin-top: 40px;
  }
 
-#deliveryDivFinal {
+#pizzaToppings {
+  font-size: 20px;
+}
+
+#deliveryDivFinal, #anotherPizza {
   display: none;
+}
+
+#imgResize {
+  height: 250px;
+  margin-left: 35%;
+}
+
+#centerTitle {
+  margin-top: 40px;
+  margin-left: 15%;
+  width: 600px;
+}
+
+#firstPizza {
+  text-align: center;
+  font-size: 25px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+#hiddenPizzaPic {
+  display: none;
+  width: 225px;
+}
+
+#mysteryDoor {
+  width: 225px;
+}
+
+.textFormatting {
+  text-align: center;
+  font-size: 25px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.colorBackground {
+  background-color: lightblue;
 }

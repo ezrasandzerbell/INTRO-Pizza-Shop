@@ -12,7 +12,7 @@ function Pizza(size, toppings) {
 }
 
 Pizza.prototype.pizzaSizeSentence = function() {
-  return "You've ordered a " + this.pizzaSize + " pizza with the following toppings:";
+  return "A " + this.pizzaSize + " Pizza";
 }
 
 Pizza.prototype.pizzaSizeCost = function() {
@@ -27,11 +27,18 @@ Pizza.prototype.pizzaSizeCost = function() {
     return pizzaSizeCost
 };
 
-Pizza.prototype.pizzaToppingsCost = function() {
+Pizza.prototype.pizzaToppingsNumber = function() {
+  var toppingsNumber = pizzaToppings.length;
+  return toppingsNumber;
+}
 
-  pizzaMath = (pizzaToppingsNumber * .5);
+Pizza.prototype.pizzaToppingsCost = function() {
+  var pizzaMath = (this.pizzaToppingsNumber() * .5);
   return pizzaMath
 };
+
+
+
 
 // user interface logic
 $(document).ready(function() {
@@ -61,7 +68,6 @@ $(document).ready(function() {
       customerAddress.push(firstName, lastName, inputtedStreet, inputtedCity, inputtedState);
       $("#addressEntry").hide();
       $("#mainPage").show();
-      $("#deliveryDivFinal").show();
   });
 
 //Pizza Ordering Form
@@ -71,15 +77,10 @@ $(document).ready(function() {
 
     var pizzaSize = $("select.pizzaSize").val();
 
-
     $("input:checkbox[name=toppings]:checked").each(function(){
       var oneTopping = $(this).val();
       pizzaToppings.push(oneTopping);
     });
-
-    var toppingsNumber = pizzaToppings.length;
-    pizzaToppingsNumber.push(toppingsNumber);
-
 
     var pizzaOutput = new Pizza(pizzaSize, pizzaToppings);
 
@@ -90,20 +91,19 @@ $(document).ready(function() {
       $("ul#firstPizzaToppings").append(pizzaOutput.pizzaToppings[i] + "<br>")
     };
 
-
-    globalPizzaSizeCost.push(pizzaOutput.pizzaSizeCost());
-
-    globalPizzaToppingsCost.push(pizzaOutput.pizzaToppingsCost());
-
-    console.log(globalPizzaToppingsCost);
-
-    var theTotalPizzaCost = parseInt((globalPizzaSizeCost).toString()) + parseInt((globalPizzaToppingsCost).toString());
+    var theTotalPizzaCost = pizzaOutput.pizzaSizeCost() + pizzaOutput.pizzaToppingsCost();
 
     $("span#totalCost").text(theTotalPizzaCost);
+
+    $("ul#deliveryAddress").text("")
     for (i = 0; i <= (customerAddress.length-1); i++) {
       $("ul#deliveryAddress").append(customerAddress[i] + "<br>")
     };
+    $("#deliveryDivFinal").show();
     $("#customerOrderResult").show();
-
+    $("#orderPizza").hide();
+    $("#anotherPizza").show();
+    $("#hiddenPizzaPic").fadeIn();
   });
+
 });

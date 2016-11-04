@@ -5,20 +5,23 @@
     <link href="css/styles.css" rel="stylesheet" type="text/css">
     <script src="js/jquery-3.1.1.js"></script>
     <script src="js/scripts.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
     <title>Pizzebra</title>
   </head>
   <body>
     <div class="container">
       <div class="row">
         <div class="col-md-3">
-          <h2>Pizzebra</h2>
           <img src="img/zebra.jpg" alt="zebraface" />
+          <br>
+          <img src="img/mkPizza.gif" alt="pizza gif" id="hiddenPizzaPic"/>
         </div>
         <div class="col-md-9">
+          <img src="img/pizzebraTitle.png" alt="title logo" id="centerTitle">
           <div id="landingPage">
             <div id="deliveryDiv">
             <h2 style="text-align: center">Pickup or Delivery?</h2>
-
+            <img src="img/pizzaLogo.png" alt="pizza logo" id="imgResize" />
             <form id="pizzaDelivery">
               <select class="form-control yesNoDelivery">
                 <option value="pickup">Pick up</option>
@@ -57,7 +60,6 @@
             </div>
 
             <div id="mainPage">
-            <h2>Custom Pizza</h2>
             <form id="orderPizza">
               <h3>Size</h3>
                 <select class="form-control pizzaSize">
@@ -67,30 +69,44 @@
                 </select>
               <h3>Toppings</h3>
                 <div class="form-group" id="pizzaToppings">
-                  <input type="checkbox" name="toppings" value="Mozzarella">Mozzarella<br>
-                  <input type="checkbox" name="toppings" value="Red peppers">Red peppers<br>
-                  <input type="checkbox" name="toppings" value="Onions">Onions<br>
-                  <input type="checkbox" name="toppings" value="Mushrooms">Mushrooms<br>
-                  <input type="checkbox" name="toppings" value="Olives">Olives<br>
-                  <input type="checkbox" name="toppings" value="Artichoke">Artichoke<br>
-                  <input type="checkbox" name="toppings" value="Pineapple">Pineapple<br>
-                  <input type="checkbox" name="toppings" value="Basil">Basil<br>
-                  <input type="checkbox" name="toppings" value="Pepperoni">Pepperoni<br>
-                  <input type="checkbox" name="toppings" value="Sausage">Sausage<br>
+                  <input type="checkbox" name="toppings" value="Mozzarella">  Mozzarella<br>
+                  <input type="checkbox" name="toppings" value="Red peppers">  Red peppers<br>
+                  <input type="checkbox" name="toppings" value="Onions">  Onions<br>
+                  <input type="checkbox" name="toppings" value="Mushrooms">  Mushrooms<br>
+                  <input type="checkbox" name="toppings" value="Olives">  Olives<br>
+                  <input type="checkbox" name="toppings" value="Artichoke">  Artichoke<br>
+                  <input type="checkbox" name="toppings" value="Pineapple">  Pineapple<br>
+                  <input type="checkbox" name="toppings" value="Basil">  Basil<br>
+                  <input type="checkbox" name="toppings" value="Pepperoni">  Pepperoni<br>
+                  <input type="checkbox" name="toppings" value="Sausage">  Sausage<br>
                 </div>
               <br>
               <button type="submit" class="btn btn-danger">Submit Pizza Request</button>
             </form>
             <div id="customerOrderResult">
-              <span id="firstPizza"></span>
-              <ul id="firstPizzaToppings">
-              </ul>
-              <p>Total cost: $<span id="totalCost"></span>
-              <div id="deliveryDivFinal">
-                <p>We will be delivering your order to the following address</p>
-                <ul id="deliveryAddress">
-                </ul>
-              </div>
+              <h1 style="text-align:center">We Will Be Delivering</h1>
+              <br>
+              <div class="row">
+                <div class="col-md-4">
+                  <span id="firstPizza"></span>
+                  <br>
+                  <br>
+                  <ul id="firstPizzaToppings">
+                  </ul>
+                </div>
+                <div class="col-md-4">
+                  <p class="textFormatting">Total cost: </p>
+                  <br>
+                  <p class="textFormatting">$<span id="totalCost"></span></p>
+                </div>
+                <div class="col-md-4">
+                  <div id="deliveryDivFinal">
+                    <p class="textFormatting">Your Address</p>
+                    <br>
+                    <ul id="deliveryAddress">
+                    </ul>
+                  </div>
+                </div>
             </div>
           </div>
         </div>
