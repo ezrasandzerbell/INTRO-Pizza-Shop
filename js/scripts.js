@@ -1,3 +1,5 @@
+var customerAddress = []
+
 function Pizza(size, toppings) {
   this.pizzaSize = size;
   this.pizzaToppings = toppings;
@@ -10,18 +12,35 @@ Pizza.prototype.pizzaSizeSentence = function() {
 // user interface logic
 $(document).ready(function() {
 
-  $("#firstButton").click(function(event)) {
+  $("form#pizzaDelivery").submit(function(event) {
     event.preventDefault();
-    var pizzaDelivery = $("select.pizzaDelivery").val();
 
-    if (pizzaDelivery === "Yes") {
-      $("#firstButton").hide();
+    var pizzaDelivery = $("select.yesNoDelivery").val();
+    console.log(pizzaDelivery);
+
+    if (pizzaDelivery === "delivery") {
+      $("#deliveryDiv").hide();
       $("#addressEntry").show();
-    } else if (pizzaDelivery === "No"){
+
+    } else {
       $("#landingPage").hide();
       $("#mainPage").show();
     }
-  }
+  });
+
+  $("form#enterAddress").submit(function(event) {
+    event.preventDefault();
+      var firstName = $("input.new-last-name").val();
+      var lastName = $("input.new-first-name").val();
+      var inputtedStreet = $("input.new-street").val();
+      var inputtedCity = $("input.new-city").val();
+      var inputtedState = $("input.new-state").val();
+      customerAddress.push(firstName, lastName, inputtedStreet, inputtedCity, inputtedState);
+      console.log(customerAddress);
+      $("#addressEntry").hide();
+      $("#mainPage").show();
+
+  });
 
   $("form#orderPizza").submit(function(event) {
     event.preventDefault();

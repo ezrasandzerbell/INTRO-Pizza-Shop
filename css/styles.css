@@ -1,7 +1,16 @@
+.yesNoDelivery {
+  margin-bottom: 40px;
+}
+
 #mainPage {
   display: none;
 }
 
 #addressEntry {
   display: none;
+  margin-top: 50px;
+}
+
+#customerOrderResult {
+  margin-top: 40px;
 }
