@@ -13,4 +13,14 @@
 
 #customerOrderResult {
   margin-top: 40px;
+  display: none;
+  font-size: 25px;
+}
+
+ #pizzaDelivery {
+  margin-top: 40px;
+ }
+
+#deliveryDivFinal {
+  display: none;
 }
